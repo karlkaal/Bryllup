@@ -1,0 +1,64 @@
+﻿@page
+@model AttendeesModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Fortell oss om dere kommer eller ikke";
+}
+<div class="row">
+    <div class="col-lg-offset-4 col-md-4">
+        <h2>@ViewData["Title"]</h2>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-lg-offset-4 col-md-4">
+                <form method="post">
+                    <h4></h4>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="attendee.Name1"></label>
+                        <input asp-for="attendee.Name1" class="form-control" />
+                        <span asp-validation-for="attendee.Name1" class="text-danger"></span>
+                    </div>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" asp-for="attendee.Name1Attending" value="true" autocomplete="off"> Kommer
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" asp-for="attendee.Name1Attending" value="false" autocomplete="off"> Kommer ikke
+                        </label>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label asp-for="attendee.Name2"></label>
+                        <input asp-for="attendee.Name2" class="form-control" />
+                        <span asp-validation-for="attendee.Name2" class="text-danger"></span>
+                    </div>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" asp-for="attendee.Name2Attending" value="true" autocomplete="off"> Kommer
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" asp-for="attendee.Name2Attending" value="false" autocomplete="off"> Kommer ikke
+                        </label>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label asp-for="attendee.Phone"></label>
+                        <input asp-for="attendee.Phone" class="form-control" />
+                        <span asp-validation-for="attendee.Phone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="attendee.Comment"></label>
+                        <textarea class="form-control" asp-for="attendee.Comment" rows="3" placeholder="Kommentarer?" required></textarea>
+                        <span asp-validation-for="attendee.Comment" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button type="submit" value="true" class="btn btn-default">Lagre</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>

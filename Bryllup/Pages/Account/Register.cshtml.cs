@@ -40,19 +40,23 @@ namespace Bryllup.Pages.Account
         {
             [Required]
             [EmailAddress]
-            [Display(Name = "Email")]
+            [Display(Name = "Epost")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-            [DataType(DataType.Password)]
-            [Display(Name = "Password")]
-            public string Password { get; set; }
+            //[Required]
+            //[Display(Name = "Telefon")]
+            //public string Phone { get; set; }
 
-            [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-            public string ConfirmPassword { get; set; }
+            //[Required]
+            //[StringLength(100, ErrorMessage = "{0} må være {2} og maks {1} tegn langt.", MinimumLength = 6)]
+            //[DataType(DataType.)]
+            //[Display(Name = "Passord")]
+            //public string Password { get; set; }
+
+            //[DataType(DataType.Password)]
+            //[Display(Name = "Gjenta password")]
+            //[Compare("Password", ErrorMessage = "Passorded og gjentagelsen stemmer ikke overens")]
+            //public string ConfirmPassword { get; set; }
         }
 
         public void OnGet(string returnUrl = null)
@@ -66,7 +70,7 @@ namespace Bryllup.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
-                var result = await _userManager.CreateAsync(user, Input.Password);
+                var result = await _userManager.CreateAsync(user, "Aladdin");
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
@@ -76,10 +80,17 @@ namespace Bryllup.Pages.Account
                     await _emailSender.SendEmailConfirmationAsync(Input.Email, callbackUrl);
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(Url.GetLocalUrl(returnUrl));
+                    return RedirectToPage("/Attendees");
                 }
+              
                 foreach (var error in result.Errors)
                 {
+                    if (error.Code == "DuplicateUserName")
+                    {
+                        var res = await _signInManager.PasswordSignInAsync(user, "Aladdin", true, false);
+                        return RedirectToPage("/Attendees");
+                    }
+
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }

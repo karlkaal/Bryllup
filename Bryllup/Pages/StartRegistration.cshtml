@@ -1,0 +1,46 @@
+﻿@page
+@model AboutModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Start registering";
+}
+<h2>@ViewData["Title"]</h2>
+
+@if (!SignInManager.IsSignedIn(User))
+{
+
+    <div class="row">
+        <div class="col-lg-offset-4 col-md-4">
+            <form method="post">
+                <h4>Skriv inn passordet fra invitasjonen</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.Passord"></label>
+                    <input asp-for="Input.Passord" class="form-control" />
+                    <span asp-validation-for="Input.Passord" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <button type="submit" value="true" class="btn btn-default">Gå videre</button>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            @Model.Message
+        </div>
+    </div>
+}
+else
+{
+    @Redirect("/Attendees")
+}
+

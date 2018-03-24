@@ -37,10 +37,12 @@ namespace Bryllup.Pages.Account
         {
             [Required]
             [EmailAddress]
+            [Display(Name = "Epost")]
             public string Email { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
+            [Display(Name = "Passord")]
             public string Password { get; set; }
 
             [Display(Name = "Remember me?")]
@@ -74,7 +76,7 @@ namespace Bryllup.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(Url.GetLocalUrl(returnUrl));
+                    return RedirectToPage("/Attendees");
                 }
                 if (result.RequiresTwoFactor)
                 {
