@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
@@ -48,7 +48,7 @@ namespace Bryllup.Pages.Account
             //public string Phone { get; set; }
 
             //[Required]
-            //[StringLength(100, ErrorMessage = "{0} må være {2} og maks {1} tegn langt.", MinimumLength = 6)]
+            //[StringLength(100, ErrorMessage = "{0} mÃ¥ vÃ¦re {2} og maks {1} tegn langt.", MinimumLength = 6)]
             //[DataType(DataType.)]
             //[Display(Name = "Passord")]
             //public string Password { get; set; }
@@ -80,15 +80,15 @@ namespace Bryllup.Pages.Account
                     await _emailSender.SendEmailConfirmationAsync(Input.Email, callbackUrl);
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToPage("/Attendees");
+                    return RedirectToPage("/Index");
                 }
-              
+
                 foreach (var error in result.Errors)
                 {
                     if (error.Code == "DuplicateUserName")
                     {
                         var res = await _signInManager.PasswordSignInAsync(user, "Aladdin", true, false);
-                        return RedirectToPage("/Attendees");
+                        return RedirectToPage("/Index");
                     }
 
                     ModelState.AddModelError(string.Empty, error.Description);

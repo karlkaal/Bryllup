@@ -1,88 +1,41 @@
 ﻿@page
 @model IndexModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 @{
     ViewData["Title"] = "Vekommen";
 }
 
-@*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how to build ASP.NET apps that can run anywhere.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    There are powerful new features in Visual Studio for building modern web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner3.svg" alt="Package Management" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Bring in libraries from NuGet, Bower, and npm, and automate tasks using Grunt or Gulp.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner4.svg" alt="Microsoft Azure" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>*@
 
-<div class="row">
-    <div class="col-md-2">
-       
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+
+            @if (Request.QueryString.HasValue)
+            {
+                <h1 class="cover-heading">Takk</h1>
+                <div>&nbsp;</div>
+                <h4>
+                    Deres svar er registrert. Om noe ble feil, trykk på "Endre/se på registrering" nedenfor. Om dere skulle få behov for å endre på noe på et senere tidspunkt, gå inn på
+                    registrerings-siden og bruk den samme E-postadressen som nå.
+                </h4>
+            }
+            else
+            {
+                <h1 class="cover-heading">Velkommen</h1>
+                <div>&nbsp;</div>
+                <h4>Her kan dere:</h4>
+            }
+            <div>&nbsp;</div>
+            <div>
+                <a class="btn btn-primary active center-block" style="margin-bottom:4px; word-wrap:break-word;" href="/Attendees">Registere om dere kommer eller ikke</a>
+                <a class="btn btn-primary active center-block" style="margin-bottom:4px; word-wrap:break-word;" href="/Info">Se informasjon om bryllypet</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
     </div>
-    <div class="col-md-8">
-        <h1 class="cover-heading">Velkommen</h1>
-        <div>&nbsp;</div>
-        <div><span>Her kan du:</span></div>
-        <div>&nbsp;</div>
-        <ul>
-            <li><a href="/StartRegistration">Registrere at du kommer</a></li>
-            <li><a href="/Account/Login">Se på registreringen</a></li>
-            <li><a href="/Info">Informasjon om bryllypet</a></li>
-        </ul>
-    </div>
-    <div class="col-md-2">
-       
-    </div>
-</div>
+

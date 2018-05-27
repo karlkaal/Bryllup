@@ -92,6 +92,11 @@ h2 {
     font-size:18px;font-weight:400;
 }
 
+.btn {
+    white-space: normal !important;
+    max-width: 175px;
+}
+
 .btn-primary {
     background-color: #fff;
     border-color: #ddd;
@@ -112,7 +117,10 @@ h2 {
         background-color: #3e6233;
         border-color: #3e6233;
     }
-
+    .btn-primary.active a {
+        color: #ddd;
+        width: 100%;
+    }
 
 .btn-primary.focus{
     background-color: #3e6233;

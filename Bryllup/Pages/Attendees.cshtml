@@ -21,44 +21,84 @@
                         <input asp-for="attendee.Name1" class="form-control" />
                         <span asp-validation-for="attendee.Name1" class="text-danger"></span>
                     </div>
+                    <div class="form-group">
+                        <label asp-for="attendee.Phone"></label>
+                        <input asp-for="attendee.Phone" class="form-control" />
+                        <span asp-validation-for="attendee.Phone" class="text-danger"></span>
+                    </div>
                     <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-primary active">
-                            <input type="radio" asp-for="attendee.Name1Attending" value="true" autocomplete="off"> Kommer
+                        <label class="btn btn-primary" id="radio1kommer">
+                            <input type="radio" asp-for="attendee.Name1Attending" value="kommer" autocomplete="off" /> Kommer
                         </label>
-                        <label class="btn btn-primary">
-                            <input type="radio" asp-for="attendee.Name1Attending" value="false" autocomplete="off"> Kommer ikke
+                        <label class="btn btn-primary" id="radio1ikke">
+
+                            <input type="radio" asp-for="attendee.Name1Attending" value="ikke" autocomplete="off" /> Kommer ikke
                         </label>
                     </div>
-                    <hr />
                     <div class="form-group">
                         <label asp-for="attendee.Name2"></label>
                         <input asp-for="attendee.Name2" class="form-control" />
                         <span asp-validation-for="attendee.Name2" class="text-danger"></span>
                     </div>
-                    <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-primary active">
-                            <input type="radio" asp-for="attendee.Name2Attending" value="true" autocomplete="off"> Kommer
-                        </label>
-                        <label class="btn btn-primary">
-                            <input type="radio" asp-for="attendee.Name2Attending" value="false" autocomplete="off"> Kommer ikke
-                        </label>
-                    </div>
-                    <hr />
                     <div class="form-group">
-                        <label asp-for="attendee.Phone"></label>
-                        <input asp-for="attendee.Phone" class="form-control" />
-                        <span asp-validation-for="attendee.Phone" class="text-danger"></span>
+                        <label asp-for="attendee.Phone2"></label>
+                        <input asp-for="attendee.Phone2" class="form-control" />
+                        <span asp-validation-for="attendee.Phone2" class="text-danger"></span>
+                    </div>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary" id="radio2kommer">
+                            <input type="radio" asp-for="attendee.Name2Attending" value="kommer" autocomplete="off" /> Kommer
+                        </label>
+                        <label class="btn btn-primary" id="radio2ikke">
+                            <input type="radio" asp-for="attendee.Name2Attending" value="ikke" autocomplete="off" /> Kommer ikke
+                        </label>
                     </div>
                     <div class="form-group">
                         <label asp-for="attendee.Comment"></label>
                         <textarea class="form-control" asp-for="attendee.Comment" rows="3" placeholder="Kommentarer?" required></textarea>
                         <span asp-validation-for="attendee.Comment" class="text-danger"></span>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <button type="submit" value="true" class="btn btn-default">Lagre</button>
-                        </div>
+                    < <div class="form-group">
+                        <button type="submit" value="true" class="btn btn-default">Lagre</button>
                     </div>
                 </form>
             </div>
         </div>
+
+
+<script type="text/javascript">
+
+    $(window).load(function () {
+
+        var name1Checked = $("#attendee_Name1Attending")[0].checked;
+        if (name1Checked) {
+            $("#radio1kommer").addClass("active");
+          ///  $("#radio1kommer").addClass("focus");
+            $("#radio1ikke").removeClass("active");
+          //  $("#radio1ikke").removeClass("focus");
+        }
+        else {
+            $("#radio1ikke").addClass("active");
+       //     $("#radio1ikke").addClass("focus");
+            $("#radio1kommer").removeClass("active");
+        //    $("#radio1kommer").removeClass("focus");
+        }
+
+        var name2Checked = $("#attendee_Name2Attending")[0].checked;
+        if (name2Checked) {
+            $("#radio2kommer").addClass("active");
+       //     $("#radio2kommer").addClass("focus");
+            $("#radio2ikke").removeClass("active");
+         //   $("#radio2ikke").removeClass("focus");
+        }
+        else {
+            $("#radio2ikke").addClass("active");
+         //   $("#radio2ikke").addClass("focus");
+            $("#radio2kommer").removeClass("active");
+          //  $("#radio2kommer").removeClass("focus");
+        }
+
+        
+    });
+
+</script>

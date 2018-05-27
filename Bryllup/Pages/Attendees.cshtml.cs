@@ -31,7 +31,7 @@ namespace Bryllup.Pages
 
                 if (attendee == null)
                 {
-                    Attendee a = new Attendee { UserName = userName, Name1Attending = true };
+                    Attendee a = new Attendee { UserName = userName, Name1Attending = "true", Comment = ""};
 
                     db.Add(a);
 
@@ -59,7 +59,7 @@ namespace Bryllup.Pages
 
 
             // If we got this far, something failed, redisplay form
-            return Page();
+            return Redirect("/?submit=1");
         }
     }
 }

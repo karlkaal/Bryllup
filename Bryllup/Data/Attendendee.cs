@@ -14,14 +14,16 @@ namespace Bryllup.Data
         [Display(Name = "Ditt navn")]
         public string Name1 { get; set; }
         [Display(Name = "Kommer du?")]
-        public bool Name1Attending { get; set; }
+        public string Name1Attending { get; set; }
         [Display(Name = "Navn på følge")]
         public string Name2 { get; set; }
         [Display(Name = "Kommer du?")]
-        public bool Name2Attending { get; set; }
+        public string Name2Attending { get; set; }
         [Display(Name = "Telefon")]
         public string Phone { get; set; }
-        [Display(Name = "Kommentar")]
+        [Display(Name = "Kommentar (allergier f.eks.)")]
         public string Comment { get; set; }
+        [Display(Name = "Telefon")]
+        public string Phone2 { get; set; }
     }
 }

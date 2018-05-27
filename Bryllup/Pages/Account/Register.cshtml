@@ -1,7 +1,7 @@
-@page
+﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Registrer deg/dere";
+    ViewData["Title"] = "Kom inn!";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -9,32 +9,16 @@
 <div class="row">
     <div class="col-lg-offset-4 col-md-4">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Vi trenger en e-postadresse enten dere kan komme eller ikke.</h4>
-            <hr />
+            <h4>Men først må vi ha en e-postadresse å knagge dere til. Dette trenger vi enten dere kan komme eller ikke</h4>
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Input.Email"></label>
                 <input asp-for="Input.Email" class="form-control" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
-            <label asp-for="Input.Phone"></label>
-            <input asp-for="Input.Phone" class="form-control" />
-            <span asp-validation-for="Input.Phone" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Input.Password"></label>
-            <input asp-for="Input.Password" class="form-control" />
-            <span asp-validation-for="Input.Password" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Input.ConfirmPassword"></label>
-            <input asp-for="Input.ConfirmPassword" class="form-control" />
-            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-        </div>*@
             <div class="form-group">
-                <button type="submit" class="btn btn-default">Registrer</button>
-                </div>
+                <button type="submit" class="btn btn-default">Gå!</button>
+            </div>
         </form>
     </div>
 </div>
