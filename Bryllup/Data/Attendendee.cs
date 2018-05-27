@@ -25,5 +25,9 @@ namespace Bryllup.Data
         public string Comment { get; set; }
         [Display(Name = "Telefon")]
         public string Phone2 { get; set; }
+        [Display(Name = "Hvor mange kommer på Grand fredag før bryllupet")]
+        public string Friday { get; set; }
+        [Display(Name = "Hvor mange kommer på Bølgen & Moi dagen etter bryllupet")]
+        public string Sunday { get; set; }
     }
 }

@@ -53,6 +53,8 @@ namespace Bryllup.Pages
                 a.Name2Attending = attendee.Name2Attending;
                 a.Phone = attendee.Phone;
                 a.Comment = attendee.Comment;
+                a.Friday = attendee.Friday;
+                a.Sunday = attendee.Sunday;
 
                 db.SaveChanges();
             }

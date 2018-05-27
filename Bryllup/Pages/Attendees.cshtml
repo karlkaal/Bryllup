@@ -3,67 +3,104 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 @{
-    ViewData["Title"] = "Fortell oss om dere kommer eller ikke";
-}
-<div class="row">
-    <div class="col-lg-offset-4 col-md-4">
-        <h2>@ViewData["Title"]</h2>
+    ViewData["Title"] = "Fortell oss om dere kommer i bryllupet eller ikke";
+}              <form method="post">
+    <div class="row">
+        <div class="col-lg-offset-4 col-md-4">
+            <div class="form-group">
+                <label asp-for="attendee.Friday"></label>
+            </div>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary" id="friday0">
+                    <input type="radio" asp-for="attendee.Friday" value="0" autocomplete="off"> Ingen
+                </label>
+                <label class="btn btn-primary" id="friday1">
+                    <input type="radio" asp-for="attendee.Friday" value="1" autocomplete="off"> én
+                </label>
+                <label class="btn btn-primary" id="friday2">
+                    <input type="radio" asp-for="attendee.Friday" value="2" autocomplete="off"> begge
+                </label>
+            </div>
+            <div>
+                &nbsp;
+            </div>
+            <div class="form-group">
+                <label asp-for="attendee.Sunday"></label>
+            </div>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary" id="sunday0">
+                    <input type="radio" asp-for="attendee.Sunday" value="0" autocomplete="off"> Ingen
+                </label>
+                <label class="btn btn-primary" id="sunday1">
+                    <input type="radio" asp-for="attendee.Sunday" value="1" autocomplete="off"> én
+                </label>
+                <label class="btn btn-primary" id="sunday2">
+                    <input type="radio" asp-for="attendee.Sunday" value="2" autocomplete="off"> begge
+                </label>
+            </div>
+            <hr />
         </div>
     </div>
-        <div class="row">
-            <div class="col-lg-offset-4 col-md-4">
-                <form method="post">
-                    <h4></h4>
-                    <hr />
-                    <div asp-validation-summary="All" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="attendee.Name1"></label>
-                        <input asp-for="attendee.Name1" class="form-control" />
-                        <span asp-validation-for="attendee.Name1" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="attendee.Phone"></label>
-                        <input asp-for="attendee.Phone" class="form-control" />
-                        <span asp-validation-for="attendee.Phone" class="text-danger"></span>
-                    </div>
-                    <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-primary" id="radio1kommer">
-                            <input type="radio" asp-for="attendee.Name1Attending" value="kommer" autocomplete="off" /> Kommer
-                        </label>
-                        <label class="btn btn-primary" id="radio1ikke">
-
-                            <input type="radio" asp-for="attendee.Name1Attending" value="ikke" autocomplete="off" /> Kommer ikke
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="attendee.Name2"></label>
-                        <input asp-for="attendee.Name2" class="form-control" />
-                        <span asp-validation-for="attendee.Name2" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="attendee.Phone2"></label>
-                        <input asp-for="attendee.Phone2" class="form-control" />
-                        <span asp-validation-for="attendee.Phone2" class="text-danger"></span>
-                    </div>
-                    <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-primary" id="radio2kommer">
-                            <input type="radio" asp-for="attendee.Name2Attending" value="kommer" autocomplete="off" /> Kommer
-                        </label>
-                        <label class="btn btn-primary" id="radio2ikke">
-                            <input type="radio" asp-for="attendee.Name2Attending" value="ikke" autocomplete="off" /> Kommer ikke
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="attendee.Comment"></label>
-                        <textarea class="form-control" asp-for="attendee.Comment" rows="3" placeholder="Kommentarer?" required></textarea>
-                        <span asp-validation-for="attendee.Comment" class="text-danger"></span>
-                    </div>
-                    < <div class="form-group">
-                        <button type="submit" value="true" class="btn btn-default">Lagre</button>
-                    </div>
-                </form>
-            </div>
+    <div class="row">
+        <div class="col-lg-offset-4 col-md-4">
+            <h2>@ViewData["Title"]</h2>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-offset-4 col-md-4">
+
+            <h4></h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="attendee.Name1"></label>
+                <input asp-for="attendee.Name1" class="form-control" />
+                <span asp-validation-for="attendee.Name1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="attendee.Phone"></label>
+                <input asp-for="attendee.Phone" class="form-control" />
+                <span asp-validation-for="attendee.Phone" class="text-danger"></span>
+            </div>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary" id="radio1kommer">
+                    <input type="radio" asp-for="attendee.Name1Attending" value="kommer" autocomplete="off" /> Kommer
+                </label>
+                <label class="btn btn-primary" id="radio1ikke">
+
+                    <input type="radio" asp-for="attendee.Name1Attending" value="ikke" autocomplete="off" /> Kommer ikke
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="attendee.Name2"></label>
+                <input asp-for="attendee.Name2" class="form-control" />
+                <span asp-validation-for="attendee.Name2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="attendee.Phone2"></label>
+                <input asp-for="attendee.Phone2" class="form-control" />
+                <span asp-validation-for="attendee.Phone2" class="text-danger"></span>
+            </div>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary" id="radio2kommer">
+                    <input type="radio" asp-for="attendee.Name2Attending" value="kommer" autocomplete="off" /> Kommer
+                </label>
+                <label class="btn btn-primary" id="radio2ikke">
+                    <input type="radio" asp-for="attendee.Name2Attending" value="ikke" autocomplete="off" /> Kommer ikke
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="attendee.Comment"></label>
+                <textarea class="form-control" asp-for="attendee.Comment" rows="3" placeholder="Kommentarer?" required></textarea>
+                <span asp-validation-for="attendee.Comment" class="text-danger"></span>
+            </div>
+            < <div class="form-group">
+                <button type="submit" value="true" class="btn btn-default">Lagre</button>
+            </div>
+
+        </div>
+    </div>
+</form>
 
 
 <script type="text/javascript">
@@ -73,32 +110,75 @@
         var name1Checked = $("#attendee_Name1Attending")[0].checked;
         if (name1Checked) {
             $("#radio1kommer").addClass("active");
-          ///  $("#radio1kommer").addClass("focus");
+            ///  $("#radio1kommer").addClass("focus");
             $("#radio1ikke").removeClass("active");
-          //  $("#radio1ikke").removeClass("focus");
+            //  $("#radio1ikke").removeClass("focus");
         }
         else {
             $("#radio1ikke").addClass("active");
-       //     $("#radio1ikke").addClass("focus");
+            //     $("#radio1ikke").addClass("focus");
             $("#radio1kommer").removeClass("active");
-        //    $("#radio1kommer").removeClass("focus");
+            //    $("#radio1kommer").removeClass("focus");
         }
 
         var name2Checked = $("#attendee_Name2Attending")[0].checked;
         if (name2Checked) {
             $("#radio2kommer").addClass("active");
-       //     $("#radio2kommer").addClass("focus");
+            //     $("#radio2kommer").addClass("focus");
             $("#radio2ikke").removeClass("active");
-         //   $("#radio2ikke").removeClass("focus");
+            //   $("#radio2ikke").removeClass("focus");
         }
         else {
             $("#radio2ikke").addClass("active");
-         //   $("#radio2ikke").addClass("focus");
+            //   $("#radio2ikke").addClass("focus");
             $("#radio2kommer").removeClass("active");
-          //  $("#radio2kommer").removeClass("focus");
+            //  $("#radio2kommer").removeClass("focus");
         }
 
-        
+        var friday0Checked = $("#friday0")[0].firstChild.nextSibling.checked
+        var friday1Checked = $("#friday1")[0].firstChild.nextSibling.checked
+        var friday2Checked = $("#friday2")[0].firstChild.nextSibling.checked
+
+
+        if (friday0Checked) {
+            $("#friday0").addClass("active");
+            $("#friday1").removeClass("active");
+            $("#friday2").removeClass("active");
+        }
+        if (friday1Checked) {
+            $("#friday1").addClass("active");
+            $("#friday0").removeClass("active");
+            $("#friday2").removeClass("active");
+        }
+        if (friday2Checked) {
+            $("#friday2").addClass("active");
+            $("#friday1").removeClass("active");
+            $("#friday0").removeClass("active");
+        }
+
+        var sunday0Checked = $("#sunday0")[0].firstChild.nextSibling.checked
+        var sunday1Checked = $("#sunday1")[0].firstChild.nextSibling.checked
+        var sunday2Checked = $("#sunday2")[0].firstChild.nextSibling.checked
+
+
+        if (sunday0Checked) {
+            $("#sunday0").addClass("active");
+            $("#sunday1").removeClass("active");
+            $("#sunday2").removeClass("active");
+        }
+        if (sunday1Checked) {
+            $("#sunday1").addClass("active");
+            $("#sunday0").removeClass("active");
+            $("#sunday2").removeClass("active");
+        }
+        if (sunday2Checked) {
+            $("#sunday2").addClass("active");
+            $("#sunday1").removeClass("active");
+            $("#sunday0").removeClass("active");
+        }
+
+         
+
     });
 
 </script>
