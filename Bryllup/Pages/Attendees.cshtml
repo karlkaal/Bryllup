@@ -38,6 +38,9 @@
                     <input type="radio" asp-for="attendee.Sunday" value="2" autocomplete="off"> begge
                 </label>
             </div>
+            <div class="form-group">
+                <button type="submit" value="true" class="btn btn-default">Lagre</button>
+            </div>
             <hr />
         </div>
     </div>
@@ -94,7 +97,7 @@
                 <textarea class="form-control" asp-for="attendee.Comment" rows="3" placeholder="Kommentarer?" required></textarea>
                 <span asp-validation-for="attendee.Comment" class="text-danger"></span>
             </div>
-            < <div class="form-group">
+            <div class="form-group">
                 <button type="submit" value="true" class="btn btn-default">Lagre</button>
             </div>
 
